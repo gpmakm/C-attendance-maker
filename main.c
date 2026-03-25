@@ -18,6 +18,8 @@ int main() {
     // Read and print file content
     while (fgets(c, sizeof(c), f) != NULL) {
         printf("%s", c);
+       
+        
     }
 
     fclose(f);
@@ -30,7 +32,7 @@ int main() {
     }
 
     // Write to file
-    fprintf(f, "Present\n");
+    fprintf(f, " \tPresent\t ");
 
     fclose(f);
 
