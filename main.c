@@ -2,11 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 
-int printStudentDetails()
+int* printStudentDetails()
 {
-    int year, branch, college, regno, srl;
+    //int year, branch, college, regno,
+    int srl;
     char yearx[4], branchx[3], collegex[3], regnox[3];
-    int students[5][11];
+    int students[5];
     do
     {
         printf("Enter 0 to close and 1 to enter details: ");
@@ -15,19 +16,24 @@ int printStudentDetails()
         {
             for (int i = 0; i < 5; i++)
             {
-                for (int j = 0; j < 11; i++)
-                {
+                
                     printf("Enter the codes for the following details student %d : \nyear \tbranch code \tcollege code \t regno :: --", i + 1);
-                    scanf("%d %d %d %d", year, branch, college, regno);
-                    sprintf(yearx, "%d", year);
-                    sprintf(branchx, "%d", branch);
-                    sprintf(collegex, "%d", collegex);
-                    sprintf(regnox, "%d", regno);
-                    // char dtl1[5] = strcat(yearx, branchx);
-                    // char dtl2[5] = strcat(collegex, regnox);
-                    // students[i][j] = strcat(dtl1, dtl2);
-                    students[i][j]=year+""+branch+""+college+""+regno;
-                }
+                    scanf("%s %s %s %s", yearx, branchx, collegex, regnox);
+                    // sprintf(yearx, "%d", year);
+                    // sprintf(branchx, "%d", branch);
+                    // sprintf(collegex, "%d", collegex);
+                    // sprintf(regnox, "%d", regno);
+                    char details[12];
+                    char part1[7], part2[7];
+                    strcat(part1, yearx);
+                    strcat(part1, branchx);
+                    strcat(part2, collegex);
+                    strcat(part2, regnox);
+                    strcat(details, part1);
+                    strcat(details, part2);
+
+                    students[i]=atoi(details);
+                
             }
         }
         return students;
@@ -72,11 +78,11 @@ int main()
     scanf("%c", &status);
     if (status == 'p')
     {
-        fprintf(f, "\tPresent");
+        fprintf(f, "\t \tPresent");
     }
     else
     {
-        fprintf(f, "\tAbsent");
+        fprintf(f, "\t \tAbsent");
     }
 
     // fprintf(f, " \tPresent\t ");
@@ -85,17 +91,18 @@ int main()
 
     printf("\nData written successfully.\n");
 
-    int data[5][11];
-   if (data==0)
+    int *data;
+    
+     data = printStudentDetails();
+   if (sizeof(data)/sizeof(data[0])==0)
    {
     printf("Nothing found!!");
    }
    else
    {
-     data = printStudentDetails();
     for (int i = 0; i < 5; i++)
     {
-        printf("%d", data[i][j]);
+        printf("%d", data[i]);
     }
    }
    
