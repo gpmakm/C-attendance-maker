@@ -23,15 +23,20 @@ int* printStudentDetails()
                     // sprintf(branchx, "%d", branch);
                     // sprintf(collegex, "%d", collegex);
                     // sprintf(regnox, "%d", regno);
-                    char details[12];
-                    char part1[7], part2[7];
-                    strcat(part1, yearx);
-                    strcat(part1, branchx);
-                    strcat(part2, collegex);
+                    char *details;
+                    char part1[6]=yearx, part2[7]=collegex;
+                    printf("\nprocessing details");
+                    
+                    strcat(part1,branchx);
+                    printf("\nConcatenated value is %s",part1);
                     strcat(part2, regnox);
+                    printf("\nConcatenated value is %s",part2);
+                    printf("\nConcated first part");
+                    // strcat(part2, collegex);
+                    // strcat(part2, regnox);
                     strcat(details, part1);
                     strcat(details, part2);
-
+                    printf("\nConcatenated value is %s",details);
                     students[i]=atoi(details);
                 
             }
