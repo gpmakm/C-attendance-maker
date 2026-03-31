@@ -4,10 +4,10 @@
 
 int* printStudentDetails()
 {
-    //int year, branch, college, regno,
+    
     int srl;
-    char yearx[4], branchx[3], collegex[3], regnox[3];
-    int students[5];
+    char yearx[4], branchx[4], collegex[4], regnox[4];
+    int *students=malloc(5*sizeof(int));
     do
     {
         printf("Enter 0 to close and 1 to enter details: ");
@@ -18,29 +18,23 @@ int* printStudentDetails()
             {
                 
                     printf("Enter the codes for the following details student %d : \nyear \tbranch code \tcollege code \t regno :: --", i + 1);
-                    scanf("%s %s %s %s", yearx, branchx, collegex, regnox);
-                    // sprintf(yearx, "%d", year);
-                    // sprintf(branchx, "%d", branch);
-                    // sprintf(collegex, "%d", collegex);
-                    // sprintf(regnox, "%d", regno);
-                    char *details;
-                    char part1[6]=yearx, part2[7]=collegex;
+                    scanf("%2s %3s %3s %3s", yearx, branchx, collegex, regnox);
+                    
+                    char final[150];
+                    snprintf(final,sizeof(final),"%s%s%s%s",yearx,branchx,collegex,regnox);
                     printf("\nprocessing details");
                     
-                    strcat(part1,branchx);
-                    printf("\nConcatenated value is %s",part1);
-                    strcat(part2, regnox);
-                    printf("\nConcatenated value is %s",part2);
-                    printf("\nConcated first part");
-                    // strcat(part2, collegex);
-                    // strcat(part2, regnox);
-                    strcat(details, part1);
-                    strcat(details, part2);
-                    printf("\nConcatenated value is %s",details);
-                    students[i]=atoi(details);
+                    
+                    printf("\nConcatenated value is %s\n",final);
+                    students[i]=atoi(final);
                 
             }
         }
+        for (int i = 0; i < 5; i++)
+        {
+            printf("%d\n",students[i]);
+        }
+        
         return students;
 
     } while (srl == 1);
@@ -99,17 +93,12 @@ int main()
     int *data;
     
      data = printStudentDetails();
-   if (sizeof(data)/sizeof(data[0])==0)
-   {
-    printf("Nothing found!!");
-   }
-   else
-   {
-    for (int i = 0; i < 5; i++)
+  
+    for (int i = 0; i < 6; i++)
     {
         printf("%d", data[i]);
     }
-   }
+   
    
 
     return 0;
