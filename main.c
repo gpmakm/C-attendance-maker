@@ -7,7 +7,7 @@ int* printStudentDetails()
     
     int srl;
     char yearx[4], branchx[4], collegex[4], regnox[4];
-    int *students=malloc(5*sizeof(int));
+    long long int *students = malloc(5 * sizeof(long long int));
     do
     {
         printf("Enter 0 to close and 1 to enter details: ");
@@ -26,14 +26,14 @@ int* printStudentDetails()
                     
                     
                     printf("\nConcatenated value is %s\n",final);
-                    students[i]=atoi(final);
+                    students[i]=atoll(final);
                 
             }
         }
-        for (int i = 0; i < 5; i++)
-        {
-            printf("%d\n",students[i]);
-        }
+        // for (int i = 0; i < 5; i++)
+        // {
+        //    printf("%lld\n", students[i]);
+        // }
         
         return students;
 
@@ -90,13 +90,13 @@ int main()
 
     printf("\nData written successfully.\n");
 
-    int *data;
+    long long int *data;
     
      data = printStudentDetails();
   
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 5; i++)
     {
-        printf("%d", data[i]);
+        printf("%lld", data[i]);
     }
    
    
