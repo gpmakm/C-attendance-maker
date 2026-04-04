@@ -7,14 +7,14 @@ int* printStudentDetails()
     
     int srl;
     char yearx[4], branchx[4], collegex[4], regnox[4];
-    long long int *students = malloc(5 * sizeof(long long int));
+    long long int *students = malloc(70 * sizeof(long long int));
     do
     {
         printf("Enter 0 to close and 1 to enter details: ");
         scanf("%d", &srl);
         if (srl == 1)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 70; i++)
             {
                 
                     printf("Enter the codes for the following details student %d : \nyear \tbranch code \tcollege code \t regno :: --", i + 1);
@@ -40,6 +40,19 @@ int* printStudentDetails()
     } while (srl == 1);
 
     return 0;
+}
+
+void eraseData(){
+    FILE *nf;
+    nf=open("attendance.txt","w");
+    fprintf(nf,"");
+    fclose(nf);
+}
+
+void writeData(){
+    FILE *nf;
+    nf=open("attendance.txt","a");
+    
 }
 
 int main()
