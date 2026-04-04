@@ -49,6 +49,22 @@ void eraseData(){
     fclose(nf);
 }
 
+void registerStudents(){
+      long long int *data;
+      FILE f;
+      f=open("attendance.txt","w");
+      
+      
+    
+     data = printStudentDetails();
+  
+    for (int i = 0; i < sizeof(data)/sizeof(data[0]); i++)
+    {
+        fprintf(f, "%lld", data[i]);
+    }
+    fclose(f);
+}
+
 void writeData(){
    f = fopen("attendance.txt", "a");
     if (f == NULL)
@@ -83,6 +99,28 @@ int main()
 {
     FILE *f;
     char c[100];
+    printf("Welcome to the attendance management system\n \nSelect an option: \n1. Register students \n2. Mark attendance \n3. View attendance\n4. Erase data\n5. Exit\n");
+    short int option;
+    scanf("%hd", &option);
+    switch (option)
+    {
+    case 1:
+        registerStudents();
+        break;
+    case 2:
+        writeData();
+        break;
+    case 3:
+        // View attendance logic
+        break;
+    case 4:
+        eraseData();
+        break;
+    case 5:
+        exit(0);
+    default:
+        break;
+    }
 
     // Open file for reading
     f = fopen("attendance.txt", "r");
@@ -100,16 +138,11 @@ int main()
 
     fclose(f);
 
+    
+
     // Open file for appending
     
-    long long int *data;
-    
-     data = printStudentDetails();
   
-    for (int i = 0; i < 5; i++)
-    {
-        printf("%lld", data[i]);
-    }
    
    
 
