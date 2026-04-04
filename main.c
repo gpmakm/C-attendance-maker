@@ -50,34 +50,7 @@ void eraseData(){
 }
 
 void writeData(){
-    FILE *nf;
-    nf=open("attendance.txt","a");
-    
-}
-
-int main()
-{
-    FILE *f;
-    char c[100];
-
-    // Open file for reading
-    f = fopen("attendance.txt", "r");
-    if (f == NULL)
-    {
-        printf("Error opening file for reading!\n");
-        return 1;
-    }
-
-    // Read and print file content
-    while (fgets(c, sizeof(c), f) != NULL)
-    {
-        printf("%s", c);
-    }
-
-    fclose(f);
-
-    // Open file for appending
-    f = fopen("attendance.txt", "a");
+   f = fopen("attendance.txt", "a");
     if (f == NULL)
     {
         printf("Error opening file for writing!\n");
@@ -103,6 +76,32 @@ int main()
 
     printf("\nData written successfully.\n");
 
+
+}
+
+int main()
+{
+    FILE *f;
+    char c[100];
+
+    // Open file for reading
+    f = fopen("attendance.txt", "r");
+    if (f == NULL)
+    {
+        printf("Error opening file for reading!\n");
+        return 1;
+    }
+
+    // Read and print file content
+    while (fgets(c, sizeof(c), f) != NULL)
+    {
+        printf("%s", c);
+    }
+
+    fclose(f);
+
+    // Open file for appending
+    
     long long int *data;
     
      data = printStudentDetails();
